@@ -2,9 +2,9 @@ services:
   postgres:
     image: postgres:17
     environment:
-      POSTGRES_USER: anyon
-      POSTGRES_PASSWORD: anyon
-      POSTGRES_DB: anyon
+      POSTGRES_USER: endless_funeral
+      POSTGRES_PASSWORD: endless_funeral
+      POSTGRES_DB: endless_funeral
     ports:
       - "5432:5432"
     volumes:

@@ -21,6 +21,17 @@ services:
     depends_on:
       - postgres
 
+  rabbitmq:
+    image: rabbitmq:4-management
+    environment:
+      RABBITMQ_DEFAULT_USER: endless_funeral
+      RABBITMQ_DEFAULT_PASS: endless_funeral
+    ports:
+      - "5672:5672"    # AMQP
+      - "15672:15672"  # management UI
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
   pgadmin:
     image: dpage/pgadmin4
     environment:
@@ -33,3 +44,4 @@ services:
 
 volumes:
   postgres_data:
+  rabbitmq_data:

@@ -5,6 +5,9 @@ WORKDIR /app
 COPY Cargo.toml Cargo.lock ./
 COPY shared/ shared/
 COPY services/graveyard/ services/graveyard/
+COPY .sqlx/ .sqlx/
+
+ENV SQLX_OFFLINE=true
 
 RUN cargo build --release --bin graveyard
 

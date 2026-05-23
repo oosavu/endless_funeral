@@ -46,9 +46,23 @@ sqlx-prepare:
 dev service="graveyard":
     cargo run -p {{service}}
 
+# --- docker сборка ---
+
+# собрать docker-образ сервиса
+docker-build service="graveyard":
+    docker compose build {{service}}
+
+# собрать все docker-образы сервисов
+docker-build-all:
+    docker compose build
+
+# пересобрать и перезапустить сервис в docker
+docker-redeploy service="graveyard":
+    docker compose up -d --build {{service}}
+
 # --- сборка и проверки ---
 
-# собрать весь workspace
+# собрать весь workspace локально
 build:
     cargo build --workspace
 
